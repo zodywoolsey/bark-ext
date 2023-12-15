@@ -4,7 +4,6 @@
 #include <windows.h>
 #include <thread>
 #include <chrono>
-#include "sunvox_lib-2.1c/sunvox_lib/headers/sunvox.h"
 
 using namespace godot;
 
