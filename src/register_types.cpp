@@ -1,6 +1,7 @@
-#include "register_types.h"
-
-#include "gdexample.h"
+#include "singletons/BarkHelpers/bark_helpers.h"
+#include "singletons/Journaling/Journaling.h"
+#include "singletons/LocalGlobals/LocalGlobals.h"
+#include "singletons/NetworkHandler/NetworkHandler.h"
 
 #include <gdextension_interface.h>
 #include <godot_cpp/core/defs.hpp>
@@ -14,7 +15,14 @@ void initialize_example_module(ModuleInitializationLevel p_level) {
         return;
     }
 
-    ClassDB::register_class<GDExample>();
+    ClassDB::register_class<BarkHelpers>();
+    ClassDB::register_class<Journaling>();
+    ClassDB::register_class<LocalGlobals>();
+    ClassDB::register_class<NetworkHandler>();
+    
+    // miniaudio_server = memnew(GDMiniaudio);
+    // godot::Engine* engine{ godot::Engine::get_singleton()};
+    // engine->register_singleton(StringName("MiniaudioServer"), miniaudio_server);
 }
 
 void uninitialize_example_module(ModuleInitializationLevel p_level) {

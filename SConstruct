@@ -13,11 +13,8 @@ env = SConscript("godot-cpp/SConstruct")
 # - LINKFLAGS are for linking flags
 
 # tweak this if you want to use different folders, or more folders, to store your source code in.
-env.Append(CPPPATH=["src/"])
-sources = Glob("src/*.cpp")
-
-# link user32.h for MessageBoxA
-env.Append(LIBS=["user32"])
+env.Append(CPPPATH=["src/", "src/singletons/*/"])
+sources = Glob("src/*.cpp") + Glob("src/singletons/*/*.cpp")
 
 # link sunvox library
 # env.Append(IMPLIBSUFFIX=".dll")
